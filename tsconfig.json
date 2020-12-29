@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"outDir": "out",
+		"lib": ["es6"],
+		"sourceMap": true,
+		"rootDir": "src",
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"esModuleInterop": true,
+		"alwaysStrict": true,
+		"strictFunctionTypes": true,
+		"downlevelIteration": true,
+		"skipLibCheck": true,
+		"noUncheckedIndexedAccess": true
+	},
+	"exclude": ["node_modules", ".vscode-test"]
+}

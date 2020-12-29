@@ -1,0 +1,50 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+name: Create Release
+
+jobs:
+  create_release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Version
+        uses: bluwy/substitute-string-action@v1
+        id: get_version
+        with:
+          _input-text: ${{ github.ref }}
+          refs/tags/v: ''
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Project
+        run: npm install
+      - name: Create VSIX
+        run: npm run create-vsix
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ format('annotation-lens-cubed-{0}.vsix', steps.get_version.outputs.result) }}
+          asset_name: ${{ format('annotation-lens-cubed-{0}.vsix', steps.get_version.outputs.result) }}
+          asset_content_type: application/octet-stream
+      - name: Publish Extension
+        uses: lannonbr/vsce-action@master
+        with:
+            args: "publish -p $VSCE_TOKEN"
+        env:
+            VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
