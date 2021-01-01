@@ -5,8 +5,16 @@
 		"url": "https://github.com/Al3xCubed/annotation-lens-cubed.git"
 	},
 	"displayName": "AnnotationLens³",
-	"description": "View information about class member overrides and implementations in the form of CodeLens annotations",
-	"version": "1.0.1",
+	"description": "Clickable @Override and @Implement CodeLens annotations for JS and TS.",
+	"icon": "images/icon.png",
+	"keywords": [
+		"annotation",
+		"override",
+		"implement",
+		"cubed",
+		"alex"
+	],
+	"version": "1.0.2",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -21,7 +29,7 @@
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc",
-		"create-vsix": "vsce package"
+		"create-vsix": "vsce package --githubBranch main"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.3",

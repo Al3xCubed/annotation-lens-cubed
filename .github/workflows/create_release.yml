@@ -45,6 +45,6 @@ jobs:
       - name: Publish Extension
         uses: lannonbr/vsce-action@master
         with:
-            args: "publish -p $VSCE_TOKEN"
+            args: "publish -p $VSCE_TOKEN --githubBranch main"
         env:
             VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}

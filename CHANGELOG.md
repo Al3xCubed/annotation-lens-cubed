@@ -7,9 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2021-01-01
+
+### Added
+
+-   README
+-   Logo
+
 ## [1.0.1] - 2020-12-30
 
--   Added GitHub repository.
+### Added
+
+-   GitHub repository.
 
 ## [1.0.0] - 2020-12-29
 
@@ -20,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Annotations can be clicked to go to the member they are referencing.
 -   Multiple annotations will show if the member is overridden multiple times.
 
-[unreleased]: https://github.com/Al3xCubed/annotation-lens-cubed/compare/v1.0.1...HEAD
+[unreleased]: https://github.com/Al3xCubed/annotation-lens-cubed/compare/v1.0.2...HEAD
 [1.0.0]: https://github.com/Al3xCubed/annotation-lens-cubed/releases/tag/v1.0.0
-[1.0.1]: https://github.com/Al3xCubed/annotation-lens-cubed/releases/tag/v1.0.1
+[1.0.1]: https://github.com/Al3xCubed/annotation-lens-cubed/compare/v1.0.0...v1.0.1
+[1.0.2]: https://github.com/Al3xCubed/annotation-lens-cubed/compare/v1.0.1...v1.0.2
