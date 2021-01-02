@@ -12,12 +12,14 @@ class Annotation {
 class AnnotationLens extends VSCODE.CodeLens {
 	public constructor(annotation: Annotation) {
 		super(annotation.sourceClassMemberSymbol.location.range, {
-			command: "vscode.open",
+			command: "editor.action.peekLocations",
 			title: `@${annotation.type} ${annotation.superClassSymbol.name}`,
 			arguments: [
-				annotation.superClassMemberSymbol.location.uri,
-				{ selection: annotation.superClassMemberSymbol.location.range },
-			] as [VSCODE.Uri, { selection: VSCODE.Range }], // type check
+				annotation.sourceClassMemberSymbol.location.uri,
+				annotation.sourceClassMemberSymbol.location.range.start,
+				[annotation.superClassMemberSymbol.location],
+				"peek",
+			] as [VSCODE.Uri, VSCODE.Position, VSCODE.Location[], "peek" | "gotoAndPeek" | "goto"], // type check
 		});
 	}
 }
